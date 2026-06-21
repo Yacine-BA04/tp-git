@@ -1,0 +1,55 @@
+
+base.html
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>tP4</title>
+        <!-- link rel="stylesheet" href="../static/style.css" -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.3.8/css/dataTables.dataTables.css">
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-title">
+                <img src="../static/images/logo.png" alt="Logo du site" class="logo">
+                <h1>Mon Site Flask</h1>
+                {% block titre %}
+                
+                {% endblock %}
+            </div>
+        </header>
+        <nav class="nav">
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <div class="menu" id="menu">
+                <a href="/">Accueil</a>
+                <a href="/about">À propos</a>
+                <a href="/gallery">Galerie</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </nav>
+        <main>
+            {% block contenu %}
+
+            {% endblock %}
+        </main>
+        <footer>
+            UAM - L3 informatique © 2025
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.3.8/js/dataTables.js"></script>
+        <script>
+            const toggle = document.getElementById("menu-toggle");
+            const menu = document.getElementById("menu");
+
+            toggle.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+            
+            $(document).ready( function () {
+                $('#exemple').DataTable();
+            } );
+        </script>
+    </body>
+</html>

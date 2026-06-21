@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+
+{% block titre %}
+    <h2>Page index</h2>
+{% endblock %}
+
+{% block contenu %}
+    <div class="container"> 
+        <div class="card">
+        </div>
+        <div class="card">Bloc 2</div>
+        <div class="card">Bloc 3</div>
+    </div>
+
+    <div class="section">
+        <table id="exemple" class="display" border="1">
+            <thead>
+                <tr>
+                    <th>NOM</th>
+                    <th>Email</th>
+                    <th>Sujet</th>
+                    <th>Message</th>
+                </tr>
+            </thead> 
+            <tbody>   
+                {% for p in ma_liste %}
+                    <tr>
+                        <td>{{p.nom}}</td>
+                        <td>{{p.email}}</td>
+                        <td>{{p.sujet}}</td>
+                        <td>{{p.message}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
